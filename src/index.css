@@ -1,13 +1,34 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root{
+  @apply w-full;
+  @apply h-full;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1{
+  @apply text-3xl;
+  @apply text-gray-800;
+  @apply font-bold;
+  @apply mb-4;
+}
+
+h2{
+  @apply text-lg;
+  @apply font-bold;
+}
+
+.title{
+  font-family: "Bungee";
+}
+
+.Input--number{
+  @apply bg-slate-200;
+  @apply w-16;
+  @apply h-6;
+  @apply p-2;
+  @apply ml-2;
+  @apply mr-4;
+  @apply rounded-md;
 }
