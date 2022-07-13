@@ -8,7 +8,7 @@ export default function Editor({setPDF, currentPDF}){
     const rotate = useSelector(state => state.qr.rotate)
     const translate = useSelector(state => state.qr.translate)
     const value = useSelector(state => state.qr.value)
-    const forground = useSelector(state => state.qr.forground)
+    const foreground = useSelector(state => state.qr.foreground)
     const background = useSelector(state => state.qr.background)
 
     const qrDataObject = {
@@ -16,7 +16,7 @@ export default function Editor({setPDF, currentPDF}){
         rotate: rotate,
         translate: translate,
         value: value,
-        forground: forground,
+        foreground: foreground,
         background: background,
     }
 
@@ -42,7 +42,6 @@ export default function Editor({setPDF, currentPDF}){
                 return {"error": index}
             })
         );
-        console.log(links);
     }
     return(
         <div className="w-0 flex-1 h-full Editor bg-slate-100 max-w-md p-10 rounded-xl overflow-scroll">
