@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const QrSlice = createSlice({
     name: 'qr',
     initialState: {
-        translate: [0,0],
+        translate: [516,36],
         scale: [129,128],
         rotate: 0,
         value: "www.antonkindt.be",

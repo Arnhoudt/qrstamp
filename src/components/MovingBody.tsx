@@ -10,18 +10,20 @@ export default function MovingBody({canvasRef}) {
   const translate = useSelector((state) => state.qr.translate);
 
     useEffect(() => {
+      canvasRef.current.style.transform = `translate(${translate[0]}px, ${translate[1]}px)`;
       setTarget(canvasRef.current);
   }, []);
 
   return <div className="container w-full h-full absolute top-0 right-0">
-      <canvas ref={canvasRef} width={150} height={150} className="target"></canvas>
+      <canvas ref={canvasRef} width={150} height={150} className="target" ></canvas>
       <Moveable target={target} draggable={true} throttleDrag={0} startDragRotate={0} throttleDragRotate={0} zoom={1}
-          origin={true} padding={{"left":0,"top":0,"right":0,"bottom":0}} onDragStart={e=> {
-          e.set(translate);
+          origin={true} padding={{"left":0,"top":0,"right":0,"bottom":0}}
+          onDragStart={e=> {
+            e.set(translate);
           }}
           onDrag={e => {
-          dispatch(setQrTranslate(e.beforeTranslate));
-          e.target.style.transform = `translate(${e.beforeTranslate[0]}px, ${e.beforeTranslate[1]}px)`;
+            dispatch(setQrTranslate(e.beforeTranslate));
+            e.target.style.transform = `translate(${e.beforeTranslate[0]}px, ${e.beforeTranslate[1]}px)`;
           }}
           resizable={true}
           keepRatio={true}
@@ -34,12 +36,6 @@ export default function MovingBody({canvasRef}) {
           }}
           onResize={(e) => {
             const beforeTranslate = e.drag.beforeTranslate;
-
-            // setFrame({
-            //   ...frame,
-            //   "translate":beforeTranslate,
-            //   "scale": [e.width, e.height]
-            // });
             dispatch(setQrTranslate(beforeTranslate));
             dispatch(setQrScale([e.width, e.height]));
             e.target.style.width = `${e.width}px`;
